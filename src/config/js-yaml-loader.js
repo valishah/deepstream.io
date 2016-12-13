@@ -190,10 +190,11 @@ function getDefaultConfigPath() {
   let i
   let k
   DEFAULT_CONFIG_DIRS = process.env.configDirs || DEFAULT_CONFIG_DIRS
-
+  console.log(DEFAULT_CONFIG_DIRS)
   for (k = 0; k < DEFAULT_CONFIG_DIRS.length; k++) {
     for (i = 0; i < SUPPORTED_EXTENSIONS.length; i++) {
       filePath = DEFAULT_CONFIG_DIRS[k] + SUPPORTED_EXTENSIONS[i]
+      console.log('fileUtils.fileExistsSync', filePath, fileUtils.fileExistsSync(filePath))
       if (fileUtils.fileExistsSync(filePath)) {
         return filePath
       }
